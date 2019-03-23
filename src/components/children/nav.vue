@@ -64,57 +64,101 @@
       </ul>
     </div>
     <!-- 导航条结束 -->
-    <!-- Carousel开始 -->
+    <!-- swipe开始 -->
+    <div class="swipe">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <swiper-slide>
+          <a href>
+            <img src="../children../../../assets/pic/banner.jpg" alt="firstImage">
+          </a>
+        </swiper-slide>
+        <swiper-slide>
+          <a href>
+            <img src="../children../../../assets/pic/banner.jpg" alt="secImage">
+          </a>
+        </swiper-slide>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="../children../../../assets/pic/banner.jpg" class="d-block w-100" alt="...">
+        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+      </swiper>
+      <!-- swipe结束 -->
     </div>
-    <div class="carousel-item">
-      <img src="../children../../../assets/pic/banner.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
-
-
-
-
-
-
-
-
   </div>
 </template>
 
 <script>
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+require("swiper/dist/css/swiper.css");
 export default {
-
   name: "home",
-  data() {
-    return {};
+  components: {
+    swiper,
+    swiperSlide
   },
-  components: {}
+  data() {
+    return {
+      swiperOption: {
+        notNextTick: true,
+        //循环
+        loop: true,
+        //设定初始化时slide的索引
+        initialSlide: 0,
+        //自动播放
+        autoplay: {
+          delay: 3000,
+          stopOnLastSlide: false,
+          disableOnInteraction: true
+        },
+        //滑动速度
+        speed: 800,
+        //滑动方向
+        direction: "horizontal",
+        //小手掌抓取滑动
+        grabCursor: true,
+        //滑动之后回调函数
+        on: {
+          slideChangeTransitionEnd: function() {
+            //console.log(this.activeIndex);切换结束时，告诉我现在是第几个slide
+          }
+        },
+        //左右点击
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        //分页器设置
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: "custom",
+          //自定义分页器样式
+          renderCustom: function(swiper, current, total) {
+            const activeColor = "#168fed";
+            const normalColor = "#aeaeae";
+            let color = "";
+            let paginationStyle = "";
+            let html = "";
+            for (let i = 1; i <= total; i++) {
+              if (i === current) {
+                color = activeColor;
+              } else {
+                color = normalColor;
+              }
+              paginationStyle = `background:${color};opacity:1;margin-right:20px;width:20px;height:20px;transform:skew(15deg);border-radius:0;`;
+              html += `<span class="swiper-pagination-bullet" style=${paginationStyle}></span>`;
+            }
+            return html;
+          }
+        }
+      }
+    };
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang= "scss" scoped>
+<style lang= "scss">
 .top-cotainer {
   background-color: rgb(10, 22, 34);
   background-image: url("../children../../../assets/pic/logo.png");
@@ -176,7 +220,7 @@ export default {
   position: relative;
   justify-content: center;
   width: 100%;
-  height: 80px;
+  height: 68px;
   background: url(../children../../../assets/pic/navbg.jpg) left top repeat-x;
   ul {
     height: 80px;
@@ -201,7 +245,6 @@ export default {
         text-decoration: none;
         position: absolute;
         width: 80px;
-        
       }
     }
     .navList :hover {
@@ -223,5 +266,21 @@ export default {
 .nav ul li:hover span {
   display: block;
   text-decoration: none;
+  z-index: 999;
+}
+
+.swipe {
+  width: 100%;
+  height: 480px;
+  a {
+    display: block;
+    text-align: center;
+  }
+  .swiper-button-prev {
+    background-image: url(../children../../../assets/pic/hover_left.png);
+  }
+  .swiper-button-next {
+    background-image: url(../children../../../assets/pic/hover_right.png);
+  }
 }
 </style>

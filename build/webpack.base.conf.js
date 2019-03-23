@@ -89,10 +89,9 @@ module.exports = {
     child_process: 'empty'
   },
   plugins: [
-    
     new webpack.ProvidePlugin({
-        jQuery: "jquery",
-        $: "jquery"
+    jQuery: "jquery",
+    $: "jquery"
     })
     ]
 }
