@@ -52,7 +52,7 @@
     <div class="footBottom">
       <div class="leftFooter">
         地址：这里是您的公司地址 电话：4000-96877 手机：4000-96877
-        <br>Copyright © 2002-2011 DEDE58.COM 织梦模板 版权所有
+        <br>Copyright© 2002-2011 DEDE58.COM 织梦模板 版权所有
         <br>技术支持：
         <a href alt="网络设计">网络设计</a>
         <br>ICP备案编号：
@@ -84,7 +84,7 @@
   align-items: center;
   .TopFooter {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 1000px;
     height: 210px;
     border-bottom: 1px solid rgb(123, 142, 158);
@@ -171,11 +171,10 @@
   }
 
   .footerCenter {
+    word-spacing: 10px;
     width: 1000px;
     height: 50px;
-    text-indent: 90px;
     border-bottom: 1px solid rgb(123, 142, 158);
-    text-indent: 90px;
     padding-top: 15px;
     b {
       color: rgb(123, 142, 158);
@@ -186,6 +185,7 @@
     }
   }
   .footBottom {
+    word-spacing: 10px;
     width: 1000px;
     display: flex;
     justify-content: space-between;
