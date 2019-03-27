@@ -1,6 +1,6 @@
 # cars-for-sell
 
-> 
+> build base on VUE-cli 3.0
 
 ## Build Setup
 
