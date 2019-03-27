@@ -304,17 +304,16 @@ export default {
 <style lang= "scss" scoped>
 .second-container {
   display: flex;
+  justify-content: center;
+  background-image: url("../assets/pic/case.jpg");
+  background-repeat: repeat-x;
   width: 100%;
   height: 290px;
   background-color: rgb(230, 230, 230);
-  /* padding-top: 55px; */
-  padding-left: 443px;
-
   .caseBox {
     font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
     width: 233px;
     height: 287px;
-    background-color: rgb(230, 230, 230);
     background-image: url("../assets/pic/case.png");
     background-repeat: no-repeat;
     text-align: center;
@@ -327,8 +326,7 @@ export default {
       font-size: 18px;
     }
     .body {
-      padding: 16px;
-      padding-top: 0px;
+      margin: 18px;
     }
     a {
       display: inline-block;
@@ -341,12 +339,10 @@ export default {
     }
   }
   .alignBox {
-    height: 290px;
-    width: 900px;
     background-color: rgb(230, 230, 230);
     .noticeBox {
       width: 800px;
-      height: 35px;
+      height: 51px;
       background-image: url("../assets/pic/notice.gif");
       background-repeat: no-repeat;
       background-color: white;
@@ -355,7 +351,7 @@ export default {
       .notice {
         display: inline-block;
         width: 100px;
-        padding-top: 8px;
+        padding-top: 15px;
         padding-left: 15px;
         height: 35px;
         margin-left: 10px;
@@ -370,6 +366,7 @@ export default {
       width: 800px;
       height: 254px;
       .picList {
+        width: 215px;
         margin: 10px;
         margin-top: 30px;
         background: white;
@@ -379,7 +376,7 @@ export default {
           color: black;
           .carPic {
             width: 215px;
-            height: 161;
+            height: 161px;
           }
           span {
             padding-left: 86px;

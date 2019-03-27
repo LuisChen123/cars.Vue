@@ -16,13 +16,13 @@
     <div id="sunav" class="nav">
       <ul>
         <li class="navList">
-          <a>网站首页</a>
+         <router-link to="/">网站首页</router-link>
         </li>
         <li class="navList">
-          <a>关于我们</a>
+          <router-link to="/aboutus">关于我们</router-link>
         </li>
         <li class="sunav navList">
-          <a href="#">车辆展示</a>
+          <router-link to="/allCarShow">车辆展示</router-link>
           <span>
             <ul>
               <li>
@@ -41,7 +41,7 @@
           </span>
         </li>
         <li class="navList">
-          <a>行业资讯</a>
+          <router-link to="/fieldNews">行业资讯</router-link>
         </li>
         <li class="navList">
           <a>主要车型</a>
@@ -56,16 +56,17 @@
           <a>人才招聘</a>
         </li>
         <li class="navList">
-          <a>在线留言</a>
+          <router-link to="/comment">在线留言</router-link>
         </li>
         <li class="navList">
           <a>联系我们</a>
         </li>
       </ul>
     </div>
+    
     <!-- 导航条结束 -->
     <!-- swipe开始 -->
-    <div class="swipe">
+    <div class="swipe" scoped>
       <swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide>
           <a href>
@@ -147,6 +148,8 @@ export default {
               }
               paginationStyle = `background:${color};opacity:1;margin-right:20px;width:20px;height:20px;transform:skew(15deg);border-radius:0;`;
               html += `<span class="swiper-pagination-bullet" style=${paginationStyle}></span>`;
+
+              
             }
             return html;
           }
