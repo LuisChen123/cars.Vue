@@ -52,9 +52,9 @@ export default {
       name: "",
       phoneNumber: "",
       comment: "",
-      nameWarning:"",
-      phoneNumberWarning:"",
-      commentWarning:"",
+      nameWarning: "",
+      phoneNumberWarning: "",
+      commentWarning: ""
     };
   },
   components: {
@@ -66,15 +66,21 @@ export default {
   },
   methods: {
     postComment() {
-        console.log("1")
-        var aa=this.name.trim()
-        console.log("|"+aa+"|")
-        if(this.name.trim() == '' ){
-         this.nameWarning = "名字不能为空";
-        }else{
-            console.log("1")
-        }
-    },
+      this.nameWarning = "";
+      if (this.name.trim() == "") {
+        this.nameWarning = "名字不能为空";
+      } else console.log("something went wrong");
+
+      this.phoneNumberWarning = "";
+      if (this.phoneNumber.trim() == "") {
+        this.phoneNumberWarning = "电话不能为空";
+      } else console.log("something went wrong");
+
+      this.commentWarning = "";
+      if (this.comment.trim() == "") {
+        this.commentWarning = "留言不能为空";
+      } else console.log("something went wrong");
+    }
   }
 };
 </script>

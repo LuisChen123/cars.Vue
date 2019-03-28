@@ -29,7 +29,8 @@
         </div>
       </div>
       <div class="topCenter">
-        <p class="phone">热线电话
+        <p class="phone">
+          热线电话
           <br>
           <label>4000-96877</label>
         </p>
@@ -51,12 +52,13 @@
     </div>
     <div class="footBottom">
       <div class="leftFooter">
-        地址：这里是您的公司地址 电话：4000-96877 手机：4000-96877
-        <br>Copyright© 2002-2011 DEDE58.COM 织梦模板 版权所有
-        <br>技术支持：
-        <a href alt="网络设计">网络设计</a>
-        <br>ICP备案编号：
-        <a href alt="icp">ICP备********号</a>
+        <div class="firstLine">地址：这里是您的公司地址 电话：4000-96877 手机：4000-96877</div>
+        <div class="secondLine">Copyright© 2002-2011 DEDE58.COM 织梦模板 版权所有</div>
+        <div class="thirdLine">
+          技术支持：
+          <a href alt="网络设计">网络设计</a>
+        </div>
+        <div class="fourthLine">ICP备案编号：ICP备********号</div>
       </div>
       <div class="rightFooter">
         <a href alt title="sina"></a>
@@ -74,7 +76,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang= "scss" scoped>
 .footer {
-  height: 359px;
   width: 100%;
   background-image: url("../../assets/pic/nav.jpg");
   background-repeat: repeat-x;
@@ -185,17 +186,30 @@
     }
   }
   .footBottom {
-    word-spacing: 10px;
     width: 1000px;
     display: flex;
     justify-content: space-between;
     color: rgb(123, 142, 158);
+    padding: 34px 0;
+    font-size: 12px;
     .leftFooter {
-      display: contents;
-      a {
-        display: inherit;
-        text-decoration: none;
-        color: rgb(123, 142, 158);
+      .firstLine {
+        padding: 10px 0;
+      }
+      .secondLine {
+        display: inline-block;
+      }
+      .thirdLine {
+        display: inline-block;
+        margin-left: 15px;
+        a {
+          text-decoration: none;
+          color: rgb(123, 142, 158);
+        }
+      }
+      .fourthLine {
+        display: inline-block;
+        margin-left: 15px;
       }
     }
     .rightFooter {
@@ -204,15 +218,6 @@
       height: 46px;
       background-image: url("../../assets/pic/share.gif");
       background-repeat: no-repeat;
-    }
-    a {
-      margin-left: 1px;
-      display: inline-block;
-      width: 38px;
-      height: 38px;
-      margin: 1px;
-      text-decoration: none;
-      color: rgb(123, 142, 158);
     }
   }
 }

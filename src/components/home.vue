@@ -1,5 +1,6 @@
 <template>
   <div class="fisrt-cotainer">
+    <side-box/>
     <nav-box/>
     <!-- 这是网页顶部的nav组件，包括顶部标题，导航栏，轮播图 -->
     <!-- 下面是home部分的开始 -->
@@ -9,6 +10,12 @@
         <h4 class="secondTitle">MAIN MODELS</h4>
         <div class="body">
           大众宝来、马自达、华晨宝马、奥迪Q7、奥迪Q5、
+          速腾迈腾、别克商务、吉利汽车、
+          奔驰、凯迪拉克大众宝来、马自达、华晨宝马、奥迪Q7、奥迪Q5、
+          速腾迈腾、别克商务、吉利汽车、
+          奔驰、凯迪拉克大众宝来、马自达、华晨宝马、奥迪Q7、奥迪Q5、
+          速腾迈腾、别克商务、吉利汽车、
+          奔驰、凯迪拉克大众宝来、马自达、华晨宝马、奥迪Q7、奥迪Q5、
           速腾迈腾、别克商务、吉利汽车、
           奔驰、凯迪拉克
         </div>
@@ -24,27 +31,41 @@
           <!-- @mouseenter是鼠标进入该元素后启动     @mouseleave是鼠标离开该元素后执行   他们是对立存在  而且不会触发冒泡事件 -->
         </div>
         <div class="picBox">
-          <div class="picList">
-            <a class="boxLink" href alt>
-              <img class="carPic" src="../assets/pic/1-160S0215T50-L.jpg" alt="carImage">
-              <br>
-              <span>汉兰达</span>
+          <ul class="picList">
+            <a href alt class="picLink">
+              <li>
+                <div>
+                  <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
+                  <p>
+                    汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰\
+                    达汉兰达汉兰达汉兰达汉兰达汉兰达
+                  </p>
+                </div>
+              </li>
             </a>
-          </div>
-          <div class="picList">
-            <a class="boxLink" href alt>
-              <img class="carPic" src="../assets/pic/1-160S0215Z40-L.jpg" alt="carImage">
-              <br>
-              <span>汉兰达</span>
+            <a href alt class="picLink">
+              <li>
+                <div>
+                  <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
+                  <p>
+                    汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰\
+                    达汉兰达汉兰达汉兰达汉兰达汉兰达
+                  </p>
+                </div>
+              </li>
             </a>
-          </div>
-          <div class="picList">
-            <a class="boxLink" href alt>
-              <img class="carPic" src="../assets/pic/1-160S02154010-L.jpg" alt="carImage">
-              <br>
-              <span>汉兰达</span>
+            <a href alt class="picLink">
+              <li>
+                <div>
+                  <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
+                  <p>
+                    汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰\
+                    达汉兰达汉兰达汉兰达汉兰达汉兰达
+                  </p>
+                </div>
+              </li>
             </a>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -136,11 +157,16 @@
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
       </div>
-      <div class="more">
+      <!-- <div class="more">
         <a href alt>
           <p>查看更多</p>
         </a>
-      </div>
+      </div>-->
+    </div>
+    <div class="more">
+      <a href alt>
+        <p>查看更多</p>
+      </a>
     </div>
 
     <div class="fourth-container">
@@ -214,6 +240,8 @@
 import nav from "./children/nav";
 import footer from "./children/footer";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import sideBox from "./children/sideBox";
+
 require("swiper/dist/css/swiper.css");
 export default {
   name: "home",
@@ -291,7 +319,8 @@ export default {
   },
   components: {
     "nav-box": nav,
-    "footer-box": footer
+    "footer-box": footer,
+    "side-box":sideBox
   },
   mounted() {
     this.LetStart();
@@ -326,7 +355,11 @@ export default {
       font-size: 18px;
     }
     .body {
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
       margin: 18px;
+      height: 124px;
     }
     a {
       display: inline-block;
@@ -340,6 +373,7 @@ export default {
   }
   .alignBox {
     background-color: rgb(230, 230, 230);
+    margin-left: 20px;
     .noticeBox {
       width: 800px;
       height: 51px;
@@ -362,31 +396,43 @@ export default {
     }
     .picBox {
       display: flex;
-      justify-content: center;
       width: 800px;
-      height: 254px;
+
       .picList {
-        width: 215px;
-        margin: 10px;
-        margin-top: 30px;
-        background: white;
-        height: 192px;
-        .boxLink {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: row;
+        vertical-align: middle;
+        a {
           text-decoration: none;
           color: black;
-          .carPic {
-            width: 215px;
-            height: 161px;
-          }
-          span {
-            padding-left: 86px;
-            font-size: 18px;
+          li {
+            background-color: white;
+            text-align: center;
+            margin-right: 23px;
+            margin-top: 10px;
+            div {
+              white-space: nowrap;
+              height: 200px;
+              margin: 0;
+              padding: 0;
+              width: 217px;
+              img {
+                margin-bottom: 10px;
+                width: 215px;
+                height: 161px;
+              }
+              p {
+                text-overflow: ellipsis;
+                overflow: hidden;
+              }
+            }
           }
         }
       }
     }
 
-    .picBox :hover {
+    .picBox .picList a:hover {
       opacity: 1;
       transform: translate(0, -8px);
       transition: all 0.8s ease;
@@ -399,6 +445,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 
   .text-container {
     height: 80px;
@@ -406,12 +453,14 @@ export default {
     text-align: center;
     margin-bottom: 0px;
     .mainTitle {
+      font-size: 18px;
       line-height: 0px;
       font-weight: bold;
       margin-bottom: 0px;
     }
     .smallTitle {
       margin-top: 0px;
+      font-size: 18px;
     }
   }
   .swiper {
@@ -419,11 +468,13 @@ export default {
     height: 300px;
     display: flex;
     padding-right: 100px;
+    .swiper-container {
+      height: 248px;
+    }
 
     .carQuery {
       display: block;
       width: 100%;
-      height: 300px;
 
       /* padding-right: 10px; */
       margin-left: 420px;
@@ -435,19 +486,17 @@ export default {
         li {
           display: inline-block;
           list-style: none;
-          height: 240px;
           .picTextContainer {
             .autoPic {
               width: 260px;
               height: 195px;
             }
-
             .carName {
               width: 260px;
-              height: 45px;
               background-color: rgb(253, 184, 22);
-              padding-top: 12px;
               font-size: 16px;
+              line-height: 42px;
+              padding: 6px 0;
             }
           }
         }
@@ -470,22 +519,21 @@ export default {
       right: 238px;
     }
   }
-  .more {
-    height: 80px;
-    width: 100%;
-    background-image: url(../assets/pic/morebg1.gif);
-    background-repeat: no-repeat;
-    background-position: center center;
-    a {
-      text-decoration: none;
 
-      p {
-        height: 30px;
-        text-align: center;
-        margin-top: 19px;
-        font-size: 16px;
-        color: rgb(253, 184, 22);
-      }
+}
+
+.more {
+  width: 100%;
+  background-image: url(../assets/pic/morebg1.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  a {
+    text-decoration: none;
+    p {
+      text-align: center;
+      padding: 9px 0;
+      font-size: 16px;
+      color: #fdb816;
     }
   }
 }

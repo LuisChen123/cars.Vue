@@ -2,13 +2,15 @@
   <div>
     <div class="top-cotainer">
       <div id="phone">
-        <p id="zixunrexian">咨询
+        <p id="zixunrexian">
+          咨询
           <br>热线
         </p>
         <div id="phoneNumber">4000-96877</div>
       </div>
       <div id="searchBar">
         <input type="search" placeholder="请输入关键字">
+        <!-- <input type="button" value=""> -->
       </div>
     </div>
     <!-- header结束 -->
@@ -16,7 +18,7 @@
     <div id="sunav" class="nav">
       <ul>
         <li class="navList">
-         <router-link to="/">网站首页</router-link>
+          <router-link to="/">网站首页</router-link>
         </li>
         <li class="navList">
           <router-link to="/aboutus">关于我们</router-link>
@@ -63,7 +65,7 @@
         </li>
       </ul>
     </div>
-    
+
     <!-- 导航条结束 -->
     <!-- swipe开始 -->
     <div class="swipe" scoped>
@@ -148,8 +150,6 @@ export default {
               }
               paginationStyle = `background:${color};opacity:1;margin-right:20px;width:20px;height:20px;transform:skew(15deg);border-radius:0;`;
               html += `<span class="swiper-pagination-bullet" style=${paginationStyle}></span>`;
-
-              
             }
             return html;
           }
@@ -209,6 +209,7 @@ export default {
     background-position: right 0px;
 
     input {
+      padding-left: 5px;
       border: 1px solid rgb(150, 115, 31);
       color: rgb(150, 115, 31);
       width: 205px;
