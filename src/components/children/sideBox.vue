@@ -1,7 +1,7 @@
 <template>
   <div class="sideBox-Contianer">
-    <div class="miniSideBox" :style="{visibility:miniBoxShow}" @click="boxSwitch"></div>
-    <div class="largeQRcode" :style="{visibility:largeBoxShow}">
+    <div class="miniSideBox" :style="{display:largeBoxShow}" @click="boxSwitch"></div>
+    <div class="largeQRcode" :style="{display:miniBoxShow}">
       <img
         id="closeIcon"
         src="../../assets/pic/u=2594960388,3632675066&fm=26&gp=0.jpg"
@@ -9,7 +9,7 @@
         @click="hiddenLargeBox"
       >
       <img src="../../assets/pic/erweima.png" alt="closeButton">
-      <p>扫一扫看WAP演示xxxxxxxxssssxx</p>
+      <p>扫一扫看WAP演示</p>
     </div>
   </div>
 </template>
@@ -27,12 +27,12 @@ export default {
   methods: {
     boxSwitch() {
       console.log("hello");
-      this.largeBoxShow = "visible";
-      this.miniBoxShow = "hidden";
+      this.largeBoxShow = "none";       
+      this.miniBoxShow = "block";          
     },
     hiddenLargeBox() {
-      this.largeBoxShow = "hidden";
-      this.miniBoxShow = "visible";
+      this.largeBoxShow = "block";        
+      this.miniBoxShow = "none";       
     }
   }
 };
@@ -61,7 +61,7 @@ export default {
   }
 
   .largeQRcode {
-    visibility: hidden;
+    display: none;
     width: 313px;
     height: 483px;
     background-image: url("../../assets/pic/small_phone.png");
@@ -82,7 +82,6 @@ export default {
     }
     p {
       text-align: center;
-      text-indent: 60px;
       font-size: 15px;
       color: red;
     }

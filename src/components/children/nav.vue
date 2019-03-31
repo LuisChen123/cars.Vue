@@ -15,54 +15,27 @@
     </div>
     <!-- header结束 -->
     <!-- 导航条开始 -->
-    <div id="sunav" class="nav">
-      <ul>
-        <li class="navList">
-          <router-link to="/">网站首页</router-link>
+
+    <div class="mainNavBox">
+      <ul class="mainNav">
+        <li class="mainNavList">网站首页</li>
+        <li class="mainNavList">关于我们</li>
+        <li class="mainNavList" id="spNave">
+          车辆显示
+          <div class="subNavBox">
+            <li class="subNav">热门车型</li>
+            <li class="subNav">豪华车型</li>
+            <li class="subNav">紧凑车型</li>
+            <li class="subNav">推介车型</li>
+          </div>
         </li>
-        <li class="navList">
-          <router-link to="/aboutus">关于我们</router-link>
-        </li>
-        <li class="sunav navList">
-          <router-link to="/allCarShow">车辆展示</router-link>
-          <span>
-            <ul>
-              <li>
-                <a href="#">热门车型</a>
-              </li>
-              <li>
-                <a href="#">豪华车型</a>
-              </li>
-              <li>
-                <a href="#">紧凑车型</a>
-              </li>
-              <li>
-                <a href="#">推荐车型</a>
-              </li>
-            </ul>
-          </span>
-        </li>
-        <li class="navList">
-          <router-link to="/fieldNews">行业资讯</router-link>
-        </li>
-        <li class="navList">
-          <a>主要车型</a>
-        </li>
-        <li class="navList">
-          <a>资质荣誉</a>
-        </li>
-        <li class="navList">
-          <a>租车须知</a>
-        </li>
-        <li class="navList">
-          <a>人才招聘</a>
-        </li>
-        <li class="navList">
-          <router-link to="/comment">在线留言</router-link>
-        </li>
-        <li class="navList">
-          <a>联系我们</a>
-        </li>
+        <li class="mainNavList">行业资讯</li>
+        <li class="mainNavList">主要车型</li>
+        <li class="mainNavList">资质荣誉</li>
+        <li class="mainNavList">租车须知</li>
+        <li class="mainNavList">人才招聘</li>
+        <li class="mainNavList">在线留言</li>
+        <li class="mainNavList">联系我们</li>
       </ul>
     </div>
 
@@ -101,6 +74,9 @@ export default {
   },
   data() {
     return {
+      activeIndex: "1",
+      activeIndex2: "1",
+
       swiperOption: {
         notNextTick: true,
         //循环
@@ -156,6 +132,11 @@ export default {
         }
       }
     };
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    }
   }
 };
 </script>
@@ -179,8 +160,9 @@ export default {
     height: 50px;
     background-image: url("../children../../../assets/pic/telt.png");
     background-repeat: no-repeat;
-    margin-left: 1257px;
     background-position-y: center;
+    float: right;
+    right: 301px;
 
     font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
     color: rgb(252, 255, 255);
@@ -201,8 +183,9 @@ export default {
     justify-content: space-between;
     width: 205px;
     height: 30px;
-    margin-top: 6px;
-    margin-left: 1257px;
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
     background-image: url("../children../../../assets/pic/button.png");
     background-repeat: no-repeat;
     background-size: 41px 30px;
@@ -219,59 +202,61 @@ export default {
   }
 }
 
-.nav {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  width: 100%;
+/* 这是导航栏开始 */
+.mainNavBox {
   height: 68px;
-  background: url(../children../../../assets/pic/navbg.jpg) left top repeat-x;
-  ul {
-    height: 80px;
-    align-items: middle;
-
-    li {
-      float: left;
-      list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/pic/navbg.jpg");
+  background-repeat: repeat-x;
+  background-position: center center;
+  .mainNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    height: 100%;
+    .mainNavList {
+      height: 110%;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
       width: 100px;
-      line-height: 68px;
-      text-align: center;
-
-      a {
-        text-decoration: none;
-        display: block;
-        color: black;
-        width: 100px;
-        line-height: 68px;
-      }
-      span {
+      justify-content: center;
+      margin: 0px 5px;
+      .subNavBox {
         display: none;
-        text-decoration: none;
         position: absolute;
-        width: 80px;
+        background-color: rgb(26, 42, 57);
+        margin-top: 109px;
+        width: 100px;
+        text-align: center;
+        line-height: 40px;
+        z-index: 999;
+        .subNav {
+          z-index: 9999;
+        }
       }
-    }
-    .navList :hover {
-      color: rgb(255, 189, 22);
-      background: url(../children../../../assets/pic/nav.jpg);
-    }
-
-    .navList:hover span ul li a {
-      background-color: rgb(26, 42, 57);
-      color: rgb(255, 189, 22);
     }
   }
 }
-
-.nav ul li a:hover {
-  background-color: rgb(26, 42, 57);
+.mainNavList:hover {
+  background-image: url("../../assets/pic/nav.jpg");
+  color: rgb(253, 184, 17);
 }
 
-.nav ul li:hover span {
+#spNave:hover .subNavBox {
   display: block;
-  text-decoration: none;
-  z-index: 999;
 }
+
+#spNave .subNavBox .subNav:hover{
+  background-image: unset!important;
+  background-color:rgb(253, 184, 17)!important;
+  color: black
+}
+
+/* 这是导航栏结束 */
 
 .swipe {
   width: 100%;

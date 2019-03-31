@@ -77,91 +77,62 @@
       </div>
       <br>
 
-      <div class="swiper">
-        <swiper :options="swiperOption" ref="mySwiper">
-          <swiper-slide>
-            <ul class="carQuery">
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <a href alt>
-                      <img class="autoPic" src="../assets/pic/1-160S02154010-L.jpg" alt>
-                    </a>
-                    <p class="carName">路虎揽胜</p>
-                  </div>
-                </li>
-              </a>
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <img class="autoPic" src="../assets/pic/1-160S0215T50-L.jpg" alt>
-                    <p class="carName">宝马</p>
-                  </div>
-                </li>
-              </a>
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <img class="autoPic" src="../assets/pic/1-160S0215Z40-L.jpg" alt>
-                    <p class="carName">奔驰</p>
-                  </div>
-                </li>
-              </a>
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <img class="autoPic" src="../assets/pic/1-160S02159230-L.jpg" alt>
-                    <p class="carName">载重车</p>
-                  </div>
-                </li>
-              </a>
+      <!-- 这是小型swiper的开始 -->
+
+      <div class="swipe-Contianer">
+        <div class="innerBox">
+          <div class="preButton" @click="preList"></div>
+          <transition mode="out-in">
+            <!-- 加入动画，使用transtion包裹元素 -->
+
+            <ul :class="[isActive?'switchPanel':'nextSwitchPanel']">
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
+                <p>路虎哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
+              </li>
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
+                <p>奇瑞qq</p>
+              </li>
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
+                <p>五菱宏光</p>
+              </li>
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
+                <p>奔驰迈巴赫</p>
+              </li>
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
+                <p>兰博基尼</p>
+              </li>
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S02159230-L.jpg" alt>
+                <p>哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
+              </li>
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S02159230-L.jpg" alt>
+                <p>哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
+              </li>
+              <li class="picList">
+                <div class="darkGlass"></div>
+                <img src="../assets/pic/1-160S02159230-L.jpg" alt>
+                <p>哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
+              </li>
             </ul>
-          </swiper-slide>
-          <swiper-slide>
-            <ul class="carQuery">
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <img class="autoPic" src="../assets/pic/1-160S02154010-L.jpg" alt>
-                    <p class="carName">轻卡</p>
-                  </div>
-                </li>
-              </a>
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <img class="autoPic" src="../assets/pic/1-160S0215T50-L.jpg" alt>
-                    <p class="carName">公路客车</p>
-                  </div>
-                </li>
-              </a>
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <img class="autoPic" src="../assets/pic/1-160S0215Z40-L.jpg" alt>
-                    <p class="carName">城市客车</p>
-                  </div>
-                </li>
-              </a>
-              <a>
-                <li>
-                  <div class="picTextContainer">
-                    <img class="autoPic" src="../assets/pic/1-160S02159230-L.jpg" alt>
-                    <p class="carName">轻型客车</p>
-                  </div>
-                </li>
-              </a>
-            </ul>
-          </swiper-slide>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+          </transition>
+          <!-- 动画结束 -->
+          <div class="nextButton" @click.prevent="preList"></div>
+        </div>
       </div>
-      <!-- <div class="more">
-        <a href alt>
-          <p>查看更多</p>
-        </a>
-      </div>-->
+      <!-- 这是小型swiper的结束 -->
     </div>
     <div class="more">
       <a href alt>
@@ -227,9 +198,9 @@
     </div>
 
     <div class="fivth-container">
-      <a href class="noticeLink">
-        <div class="notice">租车须知</div>
-      </a>
+      <div class="inner-Container">
+        <div>租车须知</div>
+      </div>
     </div>
 
     <footer-box/>
@@ -249,55 +220,8 @@ export default {
     return {
       msg: "织梦58，诚信为本，市场在变，诚信永远不变...",
       intervalId: null,
-      swiperOption: {
-        notNextTick: true,
-        //循环
-        loop: true,
-        //设定初始化时slide的索引
-        initialSlide: 0,
-        //自动播放
-        // autoplay: {// 取消autoplay
-        // delay: 3000,
-        // stopOnLastSlide: false,
-        // disableOnInteraction: true
-        // },
-        //滑动速度
-        speed: 800,
-        //滑动方向
-
-        on: {
-          slideChangeTransitionEnd: function() {
-            //console.log(this.activeIndex);切换结束时，告诉我现在是第几个slide
-          }
-        },
-        //左右点击
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        //分页器设置
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-          type: "custom",
-          //自定义分页器样式
-          renderCustom: function(swiper, current, total) {
-            const activeColor = "#168fed";
-            const normalColor = "#aeaeae";
-            let color = "";
-            let paginationStyle = "";
-            let html = "";
-            for (let i = 1; i <= total; i++) {
-              if (i === current) {
-                color = activeColor;
-              } else {
-                color = normalColor;
-              }
-            }
-            return html;
-          }
-        }
-      }
+      isActive: false,
+      next: "flex-start"
     };
   },
   created() {},
@@ -315,12 +239,19 @@ export default {
     letStop() {
       clearInterval(this.intervalId);
       this.intervalId = null;
+    },
+    preList() {
+      if (this.isActive == false) {
+        this.isActive = true;
+      } else {
+        this.isActive = false;
+      }
     }
   },
   components: {
     "nav-box": nav,
     "footer-box": footer,
-    "side-box":sideBox
+    "side-box": sideBox
   },
   mounted() {
     this.LetStart();
@@ -331,6 +262,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang= "scss" scoped>
+/* .v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(150px);
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
+} */
+
 .second-container {
   display: flex;
   justify-content: center;
@@ -441,7 +383,7 @@ export default {
 }
 
 .third-container {
-  height: 375px;
+  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -463,64 +405,144 @@ export default {
       font-size: 18px;
     }
   }
-  .swiper {
+
+  .swipe-Contianer {
     width: 100%;
-    height: 300px;
+    height: 800px;
+    background-color: white;
     display: flex;
-    padding-right: 100px;
-    .swiper-container {
-      height: 248px;
-    }
+    justify-content: center;
+    align-items: center;
 
-    .carQuery {
-      display: block;
-      width: 100%;
+    .innerBox {
+      width: 1210px;
+      height: 300px;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      /* padding-right: 10px; */
-      margin-left: 420px;
-      a {
-        display: inline-block;
-        text-align: center;
-        text-decoration: none;
-        color: black;
-        li {
-          display: inline-block;
-          list-style: none;
-          .picTextContainer {
-            .autoPic {
-              width: 260px;
-              height: 195px;
-            }
-            .carName {
-              width: 260px;
-              background-color: rgb(253, 184, 22);
-              font-size: 16px;
-              line-height: 42px;
-              padding: 6px 0;
-            }
+      .preButton {
+        width: 33px;
+        height: 76px;
+        background-image: url("../assets/pic/about03.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .switchPanel {
+        height: 100%;
+        width: 1079px;
+        display: flex;
+        justify-content: flex-start;
+        overflow: hidden;
+        align-items: center;
+        background-color: white;
+        .picList {
+          margin: 0 4px 20px 0;
+          background-color: white;
+          padding: 0 10px;
+          position: relative;
+
+          .darkGlass {
+            width: 245px;
+            height: 184px;
+            background-color: black;
+            opacity: 0.5;
+            position: absolute;
+            display: none;
+            background-image: url("../assets/pic/button.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+          }
+
+          img {
+            height: 184px;
+            width: 245px;
+          }
+          p {
+            background-color: #fdb816;
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 245px;
+            line-height: 41px;
           }
         }
       }
-    }
+      .nextSwitchPanel {
+        height: 100%;
+        width: 1079px;
+        display: flex;
+        justify-content: flex-end;
+        overflow: hidden;
+        align-items: center;
+        background-color: white;
+        .picList {
+          margin: 0 4px 20px 0;
+          background-color: white;
+          padding: 0 10px;
+          position: relative;
 
-    .swiper-button-prev {
-      background-image: url("../assets/pic/about03.jpg");
-      width: 33px;
-      height: 78px;
-      background-size: 33px 78px;
-      margin-top: -46px;
-      left: 330px;
-    }
-    .swiper-button-next {
-      background-image: url("../assets/pic/about04.jpg");
-      width: 33px;
-      height: 78px;
-      background-size: 33px 78px;
-      right: 238px;
+          .darkGlass {
+            width: 245px;
+            height: 184px;
+            background-color: black;
+            opacity: 0.5;
+            position: absolute;
+            display: none;
+            background-image: url("../assets/pic/button.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+          }
+
+          img {
+            height: 184px;
+            width: 245px;
+          }
+          p {
+            background-color: #fdb816;
+            text-align: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 245px;
+            line-height: 41px;
+          }
+        }
+      }
+
+      .nextButton {
+        width: 33px;
+        height: 76px;
+        background-image: url("../assets/pic/about04.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
     }
   }
-
 }
+
+/* 给图片列表加上不透明效果，开始 */
+.third-container
+  .swipe-Contianer
+  .innerBox
+  .switchPanel
+  .picList:hover
+  .darkGlass {
+  display: block;
+}
+.third-container
+  .swipe-Contianer
+  .innerBox
+  .nextSwitchPanel
+  .picList:hover
+  .darkGlass {
+  display: block;
+}
+
+/* 给图片列表加上不透明效果，结束 */
 
 .more {
   width: 100%;
@@ -647,36 +669,40 @@ export default {
     }
   }
 }
-
 .fivth-container {
   height: 304px;
-  width: 100%;
-  background-image: url("../assets/pic/ad.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  .noticeLink {
-    text-decoration: none;
-    color: black;
-    display: inline-block;
-    .notice {
-      display: inline-block;
-      height: 304px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .inner-Container {
+    width: 1000px;
+    height: 250px;
+    background-image: url("../assets/pic/ad.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    div {
       width: 234px;
-      margin-top: -40px;
-      margin-left: 970px;
-      padding-left: 90px;
-      padding-top: 140px;
-      background-image: url("../assets/pic/zhu.png");
-      background-repeat: no-repeat;
-      background-position: center center;
-      position: relative;
-      font-weight: bold;
+      height: 46px;
       font-size: 18px;
+      font-weight: bold;
+      background-image: url("../assets/pic/zhu.png");
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 250px;
     }
   }
 }
 
 .sixth-container {
+}
+
+.third-container .swiper .carQuery a li .picTextContainer:hover .opacityBOx {
+  display: block;
 }
 </style>
