@@ -37,6 +37,7 @@
             <li>想找个网络模板收藏夹存放自己喜爱的源码或模板？ 这里就是您的选择。</li>
             <li>想结交更多热爱织梦源码建站的朋友？那就快来分享您的源码，寻找志趣相投的朋友吧。</li>
           </ol>
+          
         </div>
       </div>
     </div>
@@ -91,8 +92,10 @@ export default {
   .bottom {
     border-top: 1px solid black;
     margin-top: 1px;
+    width: 850px;
     ol {
       list-style: decimal;
+      margin-left: 13px;
       li {
         line-height: 30px;
       }

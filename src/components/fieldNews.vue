@@ -24,7 +24,7 @@
             </div>
           </router-link>
         </div>
-        <div class="page">
+        <!-- <div class="page">
           <li>
             <a href="">首页</a>
           </li>
@@ -40,7 +40,17 @@
           <li>
             <a href="">下一页</a>
           </li>
-        </div>
+        </div> -->
+    
+<div class="block">
+  <span class="demonstration">大于 7 页时的效果</span>
+  <el-pagination
+    @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    layout="prev, pager, next"
+    :total="1000">
+  </el-pagination>
+</div>
       </div>
     </div>
     <footer-box/>
@@ -61,48 +71,7 @@ export default {
       titleName: "",
       titleDE: "",
       pathName: "",
-      list: [
-        {
-          id: 0,
-          title: "工信部印发《内燃机再制造推进计划》",
-          date: "2016/08/05"
-        },
-        {
-          id: 1,
-          title: "保守预测 2011轻客行业将重回个位数增长",
-          date: "2016/08/05"
-        },
-        {
-          id: 2,
-          title: "汽车岁末大回馈火热进行",
-          date: "2016/08/05"
-        },
-        {
-          id: 3,
-          title: "油价上涨 燃油税开征改变我们的购车理念",
-          date: "2016/08/05"
-        },
-        {
-          id: 4,
-          title: "新能源车核心零部件：放手胜过庇护",
-          date: "2016/08/05"
-        },
-        {
-          id: 5,
-          title: "国家发改委将在全国范围内严查成品油变相涨价",
-          date: "2016/08/05"
-        },
-        {
-          id: 6,
-          title: "公司召开2013年质量月启动会》",
-          date: "2016/08/05"
-        },
-        {
-          id: 7,
-          title: "公司进行工序审核",
-          date: "2016/08/05"
-        }
-      ]
+      list: []
     };
   },
   components: {
@@ -112,7 +81,29 @@ export default {
     "left-bottom-box": leftBottomBox,
     titlePath: titlePath
   },
-  methods: {}
+
+  methods: {
+    handleSizeChange(e){
+console.log(e)
+    },
+    handleCurrentChange(e){
+console.log(e)
+    },
+    getInfo(){
+      this.$axios.get("/api/home.json").then(result => {
+        if(result.data.status === 0){
+          this.list = result.data.news;
+          console.log(this.list);
+        }else{
+          alert("faild to connect servers,please check internet connection")
+        }
+      })
+    }
+
+  },
+  created(){
+    this.getInfo();
+  }
 };
 </script>
 

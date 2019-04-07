@@ -11,6 +11,7 @@
       <div id="searchBar">
         <input type="search" placeholder="请输入关键字">
         <!-- <input type="button" value=""> -->
+        <input type="submit" value="">
       </div>
     </div>
     <!-- header结束 -->
@@ -18,24 +19,53 @@
 
     <div class="mainNavBox">
       <ul class="mainNav">
-        <li class="mainNavList">网站首页</li>
-        <li class="mainNavList">关于我们</li>
+        <li class="mainNavList">
+          <router-link class="links" to="/">网站首页</router-link>
+        </li>
+
+        <li class="mainNavList">
+          <router-link class="links" to="/aboutus">关于我们</router-link>
+        </li>
+
         <li class="mainNavList" id="spNave">
-          车辆显示
+          <router-link class="links" to="/allCarShow">车辆显示</router-link>
           <div class="subNavBox">
-            <li class="subNav">热门车型</li>
-            <li class="subNav">豪华车型</li>
-            <li class="subNav">紧凑车型</li>
-            <li class="subNav">推介车型</li>
+            <li class="subNav">
+              <router-link class="sub-links" to>热门车型</router-link>
+            </li>
+            <li class="subNav">
+              <router-link class="sub-links" to>豪华车型</router-link>
+            </li>
+            <li class="subNav">
+              <router-link class="sub-links" to>紧凑车型</router-link>
+            </li>
+            <li class="subNav">
+              <router-link class="sub-links" to>推介车型</router-link>
+            </li>
           </div>
         </li>
-        <li class="mainNavList">行业资讯</li>
-        <li class="mainNavList">主要车型</li>
-        <li class="mainNavList">资质荣誉</li>
-        <li class="mainNavList">租车须知</li>
-        <li class="mainNavList">人才招聘</li>
-        <li class="mainNavList">在线留言</li>
-        <li class="mainNavList">联系我们</li>
+
+        <li class="mainNavList">
+          <router-link class="links" to="/fieldNews">行业资讯</router-link>
+        </li>
+        <li class="mainNavList">
+          <router-link class="links" to>主要车型</router-link>
+        </li>
+        <li class="mainNavList">
+          <router-link class="links" to>资质荣誉</router-link>
+        </li>
+        <li class="mainNavList">
+          <router-link class="links" to>租车须知</router-link>
+        </li>
+        <li class="mainNavList">
+          <router-link class="links" to>人才招聘</router-link>
+        </li>
+        <li class="mainNavList">
+          <router-link class="links" to="/comment">在线留言</router-link>
+        </li>
+        <li class="mainNavList">
+          <router-link class="links" to>联系我们</router-link>
+        </li>
       </ul>
     </div>
 
@@ -188,7 +218,7 @@ export default {
     margin-right: 50px;
     background-image: url("../children../../../assets/pic/button.png");
     background-repeat: no-repeat;
-    background-size: 41px 30px;
+    background-size: 28px 30px;
     background-position: right 0px;
 
     input {
@@ -225,6 +255,11 @@ export default {
       width: 100px;
       justify-content: center;
       margin: 0px 5px;
+      .links {
+        text-decoration: none;
+        color: black;
+      }
+
       .subNavBox {
         display: none;
         position: absolute;
@@ -236,6 +271,10 @@ export default {
         z-index: 999;
         .subNav {
           z-index: 9999;
+          .sub-links {
+            text-decoration: none;
+            color: black;
+          }
         }
       }
     }
@@ -246,14 +285,28 @@ export default {
   color: rgb(253, 184, 17);
 }
 
+.mainNavList:hover .links{
+  color: rgb(253, 184, 17)!important;
+}
+
+
 #spNave:hover .subNavBox {
   display: block;
 }
 
-#spNave .subNavBox .subNav:hover{
-  background-image: unset!important;
-  background-color:rgb(253, 184, 17)!important;
-  color: black
+#spNave:hover .subNavBox .subNav .sub-links{
+  color: rgb(253, 184, 17);
+}
+
+
+#spNave .subNavBox .subNav:hover .sub-links{
+  background-image: unset !important;
+  background-color: rgb(253, 184, 17) !important;
+  color: black!important;
+}
+.mainNavBox .mainNav .mainNavList .subNavBox .subNav:hover{
+   background-color: rgb(253, 184, 17) !important;
+  color: black!important;
 }
 
 /* 这是导航栏结束 */

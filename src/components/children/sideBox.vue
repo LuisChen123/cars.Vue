@@ -54,9 +54,8 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     width: 47px;
-    height: 60px;
     float: right;
-    padding-top: 480px;
+    padding-top: 60px;
     visibility: visible;
   }
 

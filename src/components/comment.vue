@@ -54,7 +54,8 @@ export default {
       comment: "",
       nameWarning: "",
       phoneNumberWarning: "",
-      commentWarning: ""
+      commentWarning: "",
+      obj:{a:111}
     };
   },
   components: {
@@ -66,20 +67,42 @@ export default {
   },
   methods: {
     postComment() {
-      this.nameWarning = "";
-      if (this.name.trim() == "") {
-        this.nameWarning = "名字不能为空";
-      } else console.log("something went wrong");
+      // debugger;
+      var a=this.obj;
+      
+      console.log(a)
+      // setTimeout(() => {
+         this.obj.a=222;
+          console.log(a)
+      // },1000)
+     
+     
+     
 
+
+      this.nameWarning = "";
+      if (this.name.trim() === "" ||  this.phoneNumberWarning === "" ||  this.comment.trim() == "") {
+        this.nameWarning = "名字不能为空";
+      } else {
+        this.name = this.name.trim();
+        console.log(this.name);
+        this.oldName = this.name;
+        this.name="";   
+      }
       this.phoneNumberWarning = "";
       if (this.phoneNumber.trim() == "") {
         this.phoneNumberWarning = "电话不能为空";
-      } else console.log("something went wrong");
-
+      } else {
+        this.phoneNumber = this.phoneNumber.trim();
+        console.log(this.phoneNumber);
+      }
       this.commentWarning = "";
       if (this.comment.trim() == "") {
         this.commentWarning = "留言不能为空";
-      } else console.log("something went wrong");
+      } else {
+        this.comment = this.comment.trim();
+        console.log(this.comment);
+      }
     }
   }
 };

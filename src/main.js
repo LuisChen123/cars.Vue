@@ -9,15 +9,19 @@ import './assets/css/reset.css'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
-import $ from "jquery";
+// import $ from "jquery";
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import axios from 'axios'
 
-
-
+ 
+// require styles
+import 'swiper/dist/css/swiper.css'
+ 
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUI);
 
-
+Vue.prototype.$axios= axios
 
 Vue.config.productionTip = false
 

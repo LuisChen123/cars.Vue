@@ -24,7 +24,6 @@
       <div class="alignBox">
         <div class="noticeBox">
           <p class="notice">最新公告:</p>
-
           <transition>
             <div class="messageBox" @mouseenter="letStop" @mouseleave="LetStart">{{ msg }}</div>
           </transition>
@@ -32,108 +31,36 @@
         </div>
         <div class="picBox">
           <ul class="picList">
-            <a href alt class="picLink">
-              <li>
-                <div>
-                  <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
-                  <p>
-                    汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰\
-                    达汉兰达汉兰达汉兰达汉兰达汉兰达
-                  </p>
-                </div>
-              </li>
-            </a>
-            <a href alt class="picLink">
-              <li>
-                <div>
-                  <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
-                  <p>
-                    汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰\
-                    达汉兰达汉兰达汉兰达汉兰达汉兰达
-                  </p>
-                </div>
-              </li>
-            </a>
-            <a href alt class="picLink">
-              <li>
-                <div>
-                  <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
-                  <p>
-                    汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰达汉兰\
-                    达汉兰达汉兰达汉兰达汉兰达汉兰达
-                  </p>
-                </div>
-              </li>
-            </a>
+            <li class="pic" v-for="item in car_info" :key="item.id">
+              <a class="car_links" to="#">
+                <img :src="item.img_url" alt>
+                <p>{{item.car_name}}</p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
+
     <div class="third-container">
       <div class="text-container">
         <h3 class="mainTitle">车辆展示</h3>
-        <br>
         <h5 class="smallTitle">VEHICLES SHOW</h5>
       </div>
-      <br>
-
-      <!-- 这是小型swiper的开始 -->
-
-      <div class="swipe-Contianer">
-        <div class="innerBox">
-          <div class="preButton" @click="preList"></div>
-          <transition mode="out-in">
-            <!-- 加入动画，使用transtion包裹元素 -->
-
-            <ul :class="[isActive?'switchPanel':'nextSwitchPanel']">
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S0215T50-L.jpg" alt>
-                <p>路虎哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
-              </li>
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
-                <p>奇瑞qq</p>
-              </li>
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
-                <p>五菱宏光</p>
-              </li>
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
-                <p>奔驰迈巴赫</p>
-              </li>
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S02154010-L.jpg" alt>
-                <p>兰博基尼</p>
-              </li>
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S02159230-L.jpg" alt>
-                <p>哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
-              </li>
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S02159230-L.jpg" alt>
-                <p>哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
-              </li>
-              <li class="picList">
-                <div class="darkGlass"></div>
-                <img src="../assets/pic/1-160S02159230-L.jpg" alt>
-                <p>哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森哈雷戴维森</p>
-              </li>
-            </ul>
-          </transition>
-          <!-- 动画结束 -->
-          <div class="nextButton" @click.prevent="preList"></div>
-        </div>
+      <!-- swiper插件开始 -->
+      <div class="swiper-Container">
+        <el-carousel indicator-position="outside"  arrow="hover" type="card">
+          <el-carousel-item v-for="item in car_info" :key="item.id">
+            <a href="">
+            <img :src="item.img_url" alt width="350px">
+            <p>{{item.car_name}}</p>
+            </a>
+          </el-carousel-item>
+        </el-carousel>
       </div>
-      <!-- 这是小型swiper的结束 -->
     </div>
+    <!-- swiper插件结束 -->
+
     <div class="more">
       <a href alt>
         <p>查看更多</p>
@@ -210,10 +137,8 @@
 <script>
 import nav from "./children/nav";
 import footer from "./children/footer";
-import { swiper, swiperSlide } from "vue-awesome-swiper";
 import sideBox from "./children/sideBox";
-
-require("swiper/dist/css/swiper.css");
+import "swiper/dist/css/swiper.css";
 export default {
   name: "home",
   data() {
@@ -221,10 +146,15 @@ export default {
       msg: "织梦58，诚信为本，市场在变，诚信永远不变...",
       intervalId: null,
       isActive: false,
-      next: "flex-start"
+      next: "flex-start",
+      car_info: []
     };
   },
-  created() {},
+  computed: {},
+  created() {
+    // this.init()
+    this.getName_Url();
+  },
   methods: {
     LetStart() {
       if (this.intervalId != null) {
@@ -246,6 +176,16 @@ export default {
       } else {
         this.isActive = false;
       }
+    },
+    getName_Url() {
+      this.$axios.get("/api/home.json").then(result => {
+        if (result.data.status === 0) {
+          this.car_info = result.data.title;
+          console.log(this.car_info);
+        } else {
+          alert("faild to connect servers,please check internet connection");
+        }
+      });
     }
   },
   components: {
@@ -255,24 +195,12 @@ export default {
   },
   mounted() {
     this.LetStart();
-  },
-  computed: {}
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang= "scss" scoped>
-/* .v-enter,
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(150px);
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: all 0.5s ease;
-} */
-
 .second-container {
   display: flex;
   justify-content: center;
@@ -317,7 +245,6 @@ export default {
     background-color: rgb(230, 230, 230);
     margin-left: 20px;
     .noticeBox {
-      width: 800px;
       height: 51px;
       background-image: url("../assets/pic/notice.gif");
       background-repeat: no-repeat;
@@ -337,195 +264,79 @@ export default {
       }
     }
     .picBox {
-      display: flex;
-      width: 800px;
-
+      height: 239px;
       .picList {
-        padding-top: 10px;
-        display: flex;
-        flex-direction: row;
-        vertical-align: middle;
-        a {
-          text-decoration: none;
-          color: black;
-          li {
-            background-color: white;
-            text-align: center;
-            margin-right: 23px;
-            margin-top: 10px;
-            div {
+        padding: 10px 0;
+        .pic {
+          height: 219px;
+          background-color: white;
+          float: left;
+          margin: 0 10px;
+          .car_links {
+            width: 215px;
+            height: 219px;
+            display: inline-block;
+            img {
+              width: 215px;
+              height: 180px;
+            }
+            p {
+              padding: 10px 0;
+              text-align: center;
               white-space: nowrap;
-              height: 200px;
-              margin: 0;
-              padding: 0;
-              width: 217px;
-              img {
-                margin-bottom: 10px;
-                width: 215px;
-                height: 161px;
-              }
-              p {
-                text-overflow: ellipsis;
-                overflow: hidden;
-              }
+              text-overflow: ellipsis;
+              overflow: hidden;
             }
           }
         }
       }
     }
-
-    .picBox .picList a:hover {
-      opacity: 1;
-      transform: translate(0, -8px);
-      transition: all 0.8s ease;
-    }
   }
+}
+.second-container .alignBox .picBox .picList .pic:hover {
+  opacity: 1;
+  transform: translate(0, -8px);
+  transition: all 0.8s ease;
 }
 
 .third-container {
-  height: 400px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-
   .text-container {
-    height: 80px;
-    width: 100%;
+    width: 1418px;
+    margin: 0 auto;
     text-align: center;
-    margin-bottom: 0px;
     .mainTitle {
-      font-size: 18px;
-      line-height: 0px;
       font-weight: bold;
-      margin-bottom: 0px;
     }
     .smallTitle {
-      margin-top: 0px;
-      font-size: 18px;
+      font-size: 16px;
+      font-weight: 400;
     }
   }
+  .swiper-Container {
+    width: 690px;
+    margin: 0 auto;
+    a{
+      text-decoration: none;
+      color: black;
+      img{
 
-  .swipe-Contianer {
-    width: 100%;
-    height: 800px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .innerBox {
-      width: 1210px;
-      height: 300px;
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .preButton {
-        width: 33px;
-        height: 76px;
-        background-image: url("../assets/pic/about03.jpg");
-        background-repeat: no-repeat;
-        background-position: center center;
       }
-
-      .switchPanel {
-        height: 100%;
-        width: 1079px;
-        display: flex;
-        justify-content: flex-start;
+      p{
+        white-space: nowrap;
+        width: 350px;
         overflow: hidden;
-        align-items: center;
-        background-color: white;
-        .picList {
-          margin: 0 4px 20px 0;
-          background-color: white;
-          padding: 0 10px;
-          position: relative;
+        text-align: center;
+        text-overflow: ellipsis;
 
-          .darkGlass {
-            width: 245px;
-            height: 184px;
-            background-color: black;
-            opacity: 0.5;
-            position: absolute;
-            display: none;
-            background-image: url("../assets/pic/button.png");
-            background-position: center center;
-            background-repeat: no-repeat;
-          }
 
-          img {
-            height: 184px;
-            width: 245px;
-          }
-          p {
-            background-color: #fdb816;
-            text-align: center;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            width: 245px;
-            line-height: 41px;
-          }
-        }
-      }
-      .nextSwitchPanel {
-        height: 100%;
-        width: 1079px;
-        display: flex;
-        justify-content: flex-end;
-        overflow: hidden;
-        align-items: center;
-        background-color: white;
-        .picList {
-          margin: 0 4px 20px 0;
-          background-color: white;
-          padding: 0 10px;
-          position: relative;
-
-          .darkGlass {
-            width: 245px;
-            height: 184px;
-            background-color: black;
-            opacity: 0.5;
-            position: absolute;
-            display: none;
-            background-image: url("../assets/pic/button.png");
-            background-position: center center;
-            background-repeat: no-repeat;
-          }
-
-          img {
-            height: 184px;
-            width: 245px;
-          }
-          p {
-            background-color: #fdb816;
-            text-align: center;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            width: 245px;
-            line-height: 41px;
-          }
-        }
-      }
-
-      .nextButton {
-        width: 33px;
-        height: 76px;
-        background-image: url("../assets/pic/about04.jpg");
-        background-repeat: no-repeat;
-        background-position: center center;
       }
     }
+   
   }
 }
 
 /* 给图片列表加上不透明效果，开始 */
-.third-container
+/* .third-container
   .swipe-Contianer
   .innerBox
   .switchPanel
@@ -540,7 +351,7 @@ export default {
   .picList:hover
   .darkGlass {
   display: block;
-}
+} */
 
 /* 给图片列表加上不透明效果，结束 */
 

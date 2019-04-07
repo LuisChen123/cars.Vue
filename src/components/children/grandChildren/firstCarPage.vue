@@ -1,28 +1,18 @@
 <template>
   <div>
-   <div class="carTable">
-
-
-
-          <router-link
-            v-for="item in list"
-            :key="item.id"
-            :to="'allCarShow/CarDetail/'+ item.id"
-            tag="li"
-          >
-            <div class="info">
-              <img class="tableImg" v-bind:src="item.url" alt="asdasd">
-              <p class="info-title">{{ item.title }}</p>
-            </div>
-          </router-link>
-
-          <!-- <router-view></router-view> -->
-
-
-
-
-
+    <div class="carTable">
+      <router-link
+        v-for="item in list"
+        :key="item.id"
+        :to="'allCarShow/CarDetail/'+ item.id"
+        tag="li"
+      >
+        <div class="info">
+          <img class="tableImg" v-bind:src="item.url" alt="asdasd">
+          <p class="info-title">{{ item.title }}</p>
         </div>
+      </router-link>
+    </div>
   </div>
 </template>
 s
@@ -87,29 +77,29 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang= "scss" scoped>
-    .carTable {
-      display: flex;
-      flex-wrap: wrap;
-      border-top: 2px solid;
-      margin-top: 1px;
-      margin-left: 49px;
+.carTable {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 2px solid;
+  margin-top: 1px;
+  margin-left: 49px;
 
-      li {
-        list-style: none;
-        margin: 10px 27px 10px 0px;
+  li {
+    list-style: none;
+    margin: 10px 27px 10px 0px;
 
-        .info {
-          text-align: center;
-          font-size: 33px;
-          background-color: rgb(253, 184, 17);
-          .tableImg {
-          }
-          .info-title {
-            height: 40px;
-            padding-top: 9px;
-            font-size: 15px;
-          }
-        }
+    .info {
+      text-align: center;
+      font-size: 33px;
+      background-color: rgb(253, 184, 17);
+      .tableImg {
+      }
+      .info-title {
+        height: 40px;
+        padding-top: 9px;
+        font-size: 15px;
       }
     }
-</style>
+  }
+}
+</style>s
